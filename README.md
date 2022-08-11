@@ -1,3 +1,14 @@
+# PROJECT ON AMAZON CLONE
+This project aims to create a e-commerce platform that have similarity with Amazon Website.
+
+## APP DESCRIPTION:
+  * Front end components developed using REACT JS
+  * Back end using React Router and React Context API
+  * Firebase is used to Store Datalayer
+  * firebase Authentication
+  * Payment Processing
+  * History of orders
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
