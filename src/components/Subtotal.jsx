@@ -3,10 +3,16 @@ import "./styles/Subtotal.css";
 import CurrencyFormat from "react-currency-format";
 import { useStateValue } from './context/StateProvider';
 import {getBasketTotal} from "./context/reducer";
+import {useNavigate} from "react-router-dom";
 
 
 function Subtotal() {
+  const navigate = useNavigate();  // navigate 
   const [{basket}, dispatch] = useStateValue();
+  
+  function alertMsg(){
+    return alert("Your cart is empty!!")
+  }
   return (
     
     <div className='subtotal'>
@@ -30,7 +36,8 @@ function Subtotal() {
         thousandSeparator={true}
         prefix={"$"}
     />
-    <button >Proceed to Checkout</button>
+   {/* Navigate to payment page */}
+    <button  onClick={e => ((basket.length !== 0) ? navigate("/payment") : alertMsg())} >Proceed to Checkout</button>
   </div>
   )
 }
