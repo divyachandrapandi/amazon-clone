@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Home  from './components/Home';
 import Checkout from "./components/Checkout";
 import Payment from "./components/Payment";
+import Orders from "./components/Orders";
 import { auth } from "./firebase";
 import {useStateValue} from "./components/context/StateProvider.js"
 import { loadStripe } from "@stripe/stripe-js";
@@ -57,6 +58,7 @@ function App() {
               </> } />
         
       
+        <Route exact path="/orders" element={ <><Header /><Orders/></>} />
         <Route exact path="/" element={ <><Header /><Home/> </>} />
         </Routes>     
       </div>
