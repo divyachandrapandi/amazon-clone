@@ -9,28 +9,33 @@ import {auth} from "../firebase";
 
 
 function Header() {
+// --------------------------REACT HOOKS ------------------------------------//
+const [{basket, user }, dispatch] = useStateValue();
 
-  const [{basket, user }, dispatch] = useStateValue();
-
-  const handleSignInAuthentication = () => {
+// --------------------------SIGNOUT FUNCTION USING AUTH ------------------------------------//
+const handleSignInAuthentication = () => {
     if (user){
         auth.signOut();
     }
-  }
-  
-  return (
+}
+
+return (
     <div className='header'>
+{/* // --------------------------   AMAZON LOGO ------------------------------------// */}
         <Link to ="/">
             <img className="header__logo" src={logo} alt="amazon-logo"/>
         </Link>
 
+{/* // --------------------------AMAZON SEARCH BAR ------------------------------------// */}
          
         <div className='header__search'>
             <input className='header__searchInput' type="text"/> 
             <SearchIcon className="header__searchIcon"/>
 
         </div>
+{/* // --------------------------AMAZON NAV BAR ------------------------------------// */}
         <div className='header__nav'>
+{/* // --------------------------LOGIN ------------------------------------// */}
         <Link to={!user && "/login"}>
             <div onClick={handleSignInAuthentication} className = "header__option">
                 <span className='header__optionLineOne'> 
@@ -41,6 +46,7 @@ function Header() {
                 : 'Sign In' }</span>
             </div>
                 </Link>
+{/* // --------------------------ORDERS LINK ------------------------------------// */}
                 <Link to="/orders">
             <div className = "header__option">
                 <span className='header__optionLineOne'> Returns</span>
@@ -52,14 +58,14 @@ function Header() {
                 <span className='header__optionLineOne'> Your</span>
                 <span className='header__optionLineTwo'> Prime</span>
             </div>
-            {/* Basket Cart Link */}
+{/* // --------------------------BASKET LINK ------------------------------------// */}
             <Link to= "/checkout">
                 <div className="header__optionBasket">
                     <ShoppingBasketIcon />
                     <span className="header__optionLineTwo header__basketCount">
-                    {/* number that display basket length  */}
                     {basket?.length} 
-                    {/* optional chaining --> if basket becomes undefined for some reason ,it will shut the process withour throwing error */}
+{/* optional chaining --> if basket becomes undefined for some reason ,it will shut the process
+ withouT throwing error */}
                     </span>
                 </div>
             </Link>

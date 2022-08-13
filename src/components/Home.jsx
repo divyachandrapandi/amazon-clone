@@ -4,9 +4,9 @@ import Product from "./Product.jsx";
 
 function Home() {
   return (
-    //BEM
+    //BEM 
     <div className='home'>
-    
+    {/* HARDCODED PRODUCTS */}
     <div className="home__container">
         <img className="home__image" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Events/Aug-ART-22/GW/Event/Hero/NTA/Aug_ART_PC_LIVE_now_UNREC_FDFO0.5x._CB630844079_.jpg" alt="home-banner" />
         

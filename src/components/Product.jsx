@@ -3,11 +3,11 @@ import { useStateValue } from './context/StateProvider';
 import "./styles/Product.css";
 
   
-
+// PROPS CAN BE LISTED IN {} INSTEAD
 function Product({id, title, image, price, rating}) {
 
-  // ----------REACT HOOKS-------------//
-  const [state, dispatch] = useStateValue();
+  // ------------------------------REACT HOOKS-------------------------------------------//
+  const [state, dispatch] = useStateValue();  //STATE
 
   //--------------onClick Function---------------------//
   const addToBasket = () => {
@@ -32,6 +32,7 @@ function Product({id, title, image, price, rating}) {
                 <strong>{price}</strong>
             </p>
             <div className='product__rating'>
+            {/* RATING MAPPED TO GET STARS RENDERED ON PAGE */}
             {Array(rating).fill().map((star) => <p>⭐</p>
             )}
             </div>

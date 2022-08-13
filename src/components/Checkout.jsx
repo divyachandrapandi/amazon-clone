@@ -1,21 +1,27 @@
-import React, {forwardRef} from 'react'
+import React, {forwardRef}  from 'react'
 import "./styles/Checkout.css"
 import Subtotal from "./Subtotal"
 import {useStateValue} from "./context/StateProvider";
 import CheckoutProduct from "./CheckoutProduct";
 import FlipMove from "react-flip-move";
-function Checkout() {
-  const [{basket, user}, dispatch] = useStateValue();
-  return (
 
+
+function Checkout() {
+
+// --------------------------REACT HOOKS----------------------------------//
+  const [{basket, user}, dispatch] = useStateValue();
+
+  return (
     
     <div className="checkout">
         <div className='checkout__left'>
             <img className='checkout__ad' alt="ad-pic" 
                src="https://images-eu.ssl-images-amazon.com/images/G/31/img16/vineet/Amazon-Pay-Later/Aug_22/Aug-ART/GW-editorial_1150x323._CB630786187_.jpg" />
               <div>
+    {/* // --------------------------USER ADDRESS/EMAIL----------------------------------// */}
               <h3>{user?.email}</h3>
                 <h2 className="checkout__title"> Your Shopping Basket</h2>
+    {/* // --------------------------ITEM IN BASKET USING CHECKOUTPRODUCT ----------------------------------// */}
                 <FlipMove enterAnimation="elevator" leaveAnimation="elevator">
                   {basket.map((item) => (                  
                     <CheckoutProduct 
@@ -31,6 +37,7 @@ function Checkout() {
 
               </div>
         </div>
+    {/* // --------------------------SUB TOTAL COMPONENT ----------------------------------// */}
         <div className="checkout__right">
           <Subtotal />
         </div>

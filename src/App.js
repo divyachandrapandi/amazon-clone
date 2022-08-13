@@ -12,14 +12,20 @@ import {useStateValue} from "./components/context/StateProvider.js"
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from  "@stripe/react-stripe-js";
 
+// -----------------------LOAD STRIPE WITH PUBLIC_KEY--------------------------------//
 const promise = loadStripe("pk_test_51LVFQvSF5rhoBWfIxp1Z7KSuuV4MsHltB8ztHuk08DKn4RfWiLswptVDdzTOAvUyHHBABAs6dibDdkjouS2Iz3rj00fMJMkabd" );
 
 
 function App() {
+  // --------------------------------REACT HOOKS--------------------------------//
   const [{}, dispatch] = useStateValue();
+  
+  
+  // --------------------------------USEEFFECT REACT HOOKS--------------------------------//
   useEffect (() => {
     // will run only once when app componenet loads
     auth.onAuthStateChanged(authUser => {
+
       console.log("this is user " + authUser);
 
       if (authUser){

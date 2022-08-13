@@ -1,14 +1,19 @@
 import React, {useState} from 'react'
 import "./styles/Login.css";
-import {Link, Navigate, useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {auth} from "../firebase";
 
 function Login() {
+  // ----------------------NAVIGATE TO LINK HOOKS --------------------------//
   const navigate =useNavigate();
+
+  // ----------------------REACT HOOKS --------------------------//
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-    const signIn = (event) => {
+  
+  
+  // ----------------------SIGNIN USING FIREBASE AUTHENTICATION --------------------------//
+  const signIn = (event) => {
             event.preventDefault();
             // signin firebase 
             auth
